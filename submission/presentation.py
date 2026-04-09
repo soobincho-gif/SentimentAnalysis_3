@@ -1290,19 +1290,19 @@ def _render_mascot(variant: str) -> str:
       <svg viewBox="0 0 120 120" role="presentation">
         <defs>
           <linearGradient id="mascot-body-{class_name}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#fbfdfb"></stop>
-            <stop offset="100%" stop-color="#dcece7"></stop>
+            <stop offset="0%" stop-color="#ffffff"></stop>
+            <stop offset="100%" stop-color="#f5f7fa"></stop>
           </linearGradient>
         </defs>
-        <circle cx="60" cy="60" r="44" fill="#f8fcfa"></circle>
-        <path d="M27 43h22a8 8 0 0 1 8 8v27a8 8 0 0 1-8 8H27a8 8 0 0 1-8-8V51a8 8 0 0 1 8-8z" fill="#cfe5df"></path>
-        <path d="M71 33h22a8 8 0 0 1 8 8v31a8 8 0 0 1-8 8H71a8 8 0 0 1-8-8V41a8 8 0 0 1 8-8z" fill="url(#mascot-body-{class_name})" stroke="#b9d0ca" stroke-width="2"></path>
+        <circle cx="60" cy="60" r="44" fill="#ffffff"></circle>
+        <path d="M27 43h22a8 8 0 0 1 8 8v27a8 8 0 0 1-8 8H27a8 8 0 0 1-8-8V51a8 8 0 0 1 8-8z" fill="#eef1f5"></path>
+        <path d="M71 33h22a8 8 0 0 1 8 8v31a8 8 0 0 1-8 8H71a8 8 0 0 1-8-8V41a8 8 0 0 1 8-8z" fill="url(#mascot-body-{class_name})" stroke="#d9dee5" stroke-width="2"></path>
         <path d="M75 43h14M75 50h10" fill="none" stroke="#e16f46" stroke-linecap="round" stroke-width="3"></path>
-        <circle cx="80" cy="60" r="2.8" fill="#10201f"></circle>
-        <circle cx="92" cy="60" r="2.8" fill="#10201f"></circle>
+        <circle cx="80" cy="60" r="2.8" fill="#050505"></circle>
+        <circle cx="92" cy="60" r="2.8" fill="#050505"></circle>
         <path d="M79 69c3.1 3.1 10.9 3.1 14 0" fill="none" stroke="#1f6f78" stroke-linecap="round" stroke-width="2.6"></path>
         <circle cx="42" cy="35" r="6" fill="#f8cbb8"></circle>
-        <circle cx="97" cy="91" r="5" fill="#c5e7e5"></circle>
+        <circle cx="97" cy="91" r="5" fill="#edf4f6"></circle>
         <path d="M38 89l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#f8cbb8"></path>
       </svg>
     </div>
@@ -1346,7 +1346,7 @@ def _build_thumbnail_data_uri(
         with Image.open(image_path) as image:
             preview = image.convert("RGB")
             preview.thumbnail(max_size)
-            canvas = Image.new("RGB", max_size, color="#dcece7")
+            canvas = Image.new("RGB", max_size, color="#f5f7fa")
             x_offset = (max_size[0] - preview.width) // 2
             y_offset = (max_size[1] - preview.height) // 2
             canvas.paste(preview, (x_offset, y_offset))

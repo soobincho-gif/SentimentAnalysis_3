@@ -21,6 +21,13 @@
 ## Change Log
 ### 2026-04-10
 - changed files: `submission/styles.py`, `submission/presentation.py`, `projects/visual-storytelling/TASKS.md`
+- what improved: Refined the color-only UI pass for stronger readability. Inner cards, panels, guidance boxes, analysis cards, comparison blocks, table cells, and empty-state surfaces now use white or very light gray fills, while primary body and helper copy use near-black text. Accent colors remain only for action emphasis and status/category cues.
+- evidence: Ran a color scan to confirm the previous sage-tinted surface literals were removed from the main UI color surfaces. Verification will re-run the submission presentation/app tests before pushing.
+- remaining issue: This remains a palette-only change; no layout, event binding, generation flow, or responsive behavior was changed.
+- next best step: Do a quick browser visual check at normal and narrow widths to confirm the brighter palette feels comfortable in the real UI.
+
+### 2026-04-10
+- changed files: `submission/styles.py`, `submission/presentation.py`, `projects/visual-storytelling/TASKS.md`
 - what improved: Updated only the submission UI color palette. The warm beige/brown palette was replaced with a lighter sage/teal surface system and coral primary action accent, while preserving all layout, button state, generation flow, responsive rules, and component structure.
 - evidence: Verified the color-only change with `python -m compileall submission`, `pytest -q tests/submission/test_app.py tests/submission/test_presentation.py` (`27 passed`), and a color scan confirming the old beige/brown CSS literals were removed from the UI color surfaces.
 - remaining issue: This pass intentionally did not change spacing, typography, layout, Streamlit wiring, README content, or notebook artifacts.

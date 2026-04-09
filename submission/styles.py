@@ -2,16 +2,16 @@ from __future__ import annotations
 
 APP_CSS = """
 :root {
-  --story-bg: #edf6f3;
-  --story-surface: #fbfdfb;
-  --story-surface-strong: #dcece7;
-  --story-ink: #10201f;
-  --story-ink-muted: #526764;
-  --story-border: #b9d0ca;
+  --story-bg: #f3f5f7;
+  --story-surface: #ffffff;
+  --story-surface-strong: #f5f7fa;
+  --story-ink: #050505;
+  --story-ink-muted: #222222;
+  --story-border: #d9dee5;
   --story-accent: #e16f46;
-  --story-accent-soft: #f8cbb8;
+  --story-accent-soft: #ffe1d4;
   --story-support: #1f6f78;
-  --story-support-soft: #c5e7e5;
+  --story-support-soft: #edf4f6;
   --story-success: #2f7d4f;
   --story-warning: #b46a21;
   --story-danger: #b84747;
@@ -21,7 +21,7 @@ html,
 body,
 .gradio-container,
 body > gradio-app {
-  background: radial-gradient(circle at top, #f8fcfa 0%, var(--story-bg) 55%, #dcebe6 100%);
+  background: radial-gradient(circle at top, #ffffff 0%, var(--story-bg) 58%, #e9edf2 100%);
   color-scheme: light;
 }
 
@@ -40,7 +40,7 @@ body,
 body.dark,
 body.dark .gradio-container,
 body.dark body > gradio-app {
-  background: radial-gradient(circle at top, #f8fcfa 0%, var(--story-bg) 55%, #dcebe6 100%) !important;
+  background: radial-gradient(circle at top, #ffffff 0%, var(--story-bg) 58%, #e9edf2 100%) !important;
   color: var(--story-ink) !important;
   color-scheme: light !important;
 }
@@ -63,6 +63,13 @@ body.dark .gradio-container input,
 body.dark .gradio-container textarea,
 body.dark .gradio-container select,
 body.dark .gradio-container button {
+  color: var(--story-ink) !important;
+}
+
+.gradio-container input,
+.gradio-container textarea,
+.gradio-container select {
+  background: var(--story-surface) !important;
   color: var(--story-ink) !important;
 }
 
@@ -97,11 +104,11 @@ body > gradio-app {
 }
 
 .studio-header {
-  background: rgba(251, 253, 251, 0.86);
-  border: 1px solid rgba(185, 208, 202, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 28px;
   padding: 28px 30px;
-  box-shadow: 0 24px 60px rgba(28, 76, 75, 0.1);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
 }
 
 .studio-kicker {
@@ -130,11 +137,11 @@ body > gradio-app {
 }
 
 .panel-card {
-  background: rgba(251, 253, 251, 0.96);
-  border: 1px solid rgba(185, 208, 202, 0.95);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(217, 222, 229, 0.98);
   border-radius: 24px;
   min-width: 0;
-  box-shadow: 0 18px 42px rgba(28, 76, 75, 0.09);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
 }
 
 .input-panel,
@@ -195,10 +202,10 @@ body.story-busy {
 }
 
 body.story-busy::after {
-  background: rgba(16, 32, 31, 0.92);
+  background: rgba(5, 5, 5, 0.9);
   border-radius: 999px;
-  box-shadow: 0 16px 34px rgba(16, 32, 31, 0.2);
-  color: #fbfdfb;
+  box-shadow: 0 16px 34px rgba(5, 5, 5, 0.18);
+  color: #ffffff;
   content: attr(data-busy-label);
   font-size: 0.86rem;
   font-weight: 700;
@@ -232,16 +239,16 @@ body.story-busy #clear-corrections-button {
 }
 
 .action-guidance-shell {
-  background: rgba(220, 236, 231, 0.5);
-  border: 1px solid rgba(185, 208, 202, 0.9);
+  background: rgba(245, 247, 250, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 16px;
   margin: 0 0 18px;
   padding: 14px 16px;
 }
 
 .action-guidance-shell.running {
-  background: rgba(31, 111, 120, 0.08);
-  border-color: rgba(31, 111, 120, 0.18);
+  background: rgba(245, 247, 250, 0.96);
+  border-color: rgba(217, 222, 229, 0.95);
 }
 
 .action-guidance-title {
@@ -321,7 +328,7 @@ body.story-busy #clear-corrections-button {
 
 #sentiment-choices label::before {
   align-items: center;
-  background: rgba(31, 111, 120, 0.1);
+  background: rgba(245, 247, 250, 0.98);
   border-radius: 999px;
   color: var(--story-support);
   display: inline-flex;
@@ -340,7 +347,7 @@ body.story-busy #clear-corrections-button {
 }
 
 #sentiment-choices label:has(input:checked)::before {
-  background: rgba(251, 253, 251, 0.92);
+  background: rgba(255, 255, 255, 0.98);
   color: var(--story-accent);
 }
 
@@ -398,7 +405,7 @@ body.story-busy #clear-corrections-button {
 
 .thumb-media {
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #eaf4f0, #dcebe6);
+  background: linear-gradient(135deg, #ffffff, #f1f3f6);
   position: relative;
 }
 
@@ -421,9 +428,9 @@ body.story-busy #clear-corrections-button {
 }
 
 .thumb-badge {
-  background: rgba(16, 32, 31, 0.84);
+  background: rgba(5, 5, 5, 0.84);
   border-radius: 999px;
-  color: #fbfdfb;
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 700;
   left: 10px;
@@ -470,7 +477,7 @@ body.story-busy #clear-corrections-button {
 
 .status-icon-wrap {
   align-items: center;
-  background: rgba(251, 253, 251, 0.86);
+  background: rgba(255, 255, 255, 0.94);
   border-radius: 16px;
   display: inline-flex;
   flex: 0 0 auto;
@@ -480,23 +487,23 @@ body.story-busy #clear-corrections-button {
 }
 
 .status-banner.good {
-  background: rgba(47, 125, 79, 0.12);
+  background: rgba(247, 249, 252, 0.98);
   border: 1px solid rgba(47, 125, 79, 0.34);
 }
 
 .status-banner.caution {
-  background: rgba(180, 106, 33, 0.12);
+  background: rgba(247, 249, 252, 0.98);
   border: 1px solid rgba(180, 106, 33, 0.32);
 }
 
 .status-banner.processing {
-  background: rgba(31, 111, 120, 0.12);
+  background: rgba(247, 249, 252, 0.98);
   border: 1px solid rgba(31, 111, 120, 0.28);
 }
 
 .status-banner.low-confidence,
 .status-banner.error {
-  background: rgba(184, 71, 71, 0.12);
+  background: rgba(247, 249, 252, 0.98);
   border: 1px solid rgba(184, 71, 71, 0.3);
 }
 
@@ -621,8 +628,8 @@ body.story-busy #clear-corrections-button {
 }
 
 .story-mascot {
-  background: radial-gradient(circle at top, rgba(251, 253, 251, 0.95), rgba(248, 203, 184, 0.3));
-  border: 1px solid rgba(185, 208, 202, 0.92);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.98), rgba(245, 247, 250, 0.96));
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 26px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   display: inline-flex;
@@ -646,15 +653,15 @@ body.story-busy #clear-corrections-button {
 }
 
 .story-mascot.sequence {
-  background: radial-gradient(circle at top, rgba(251, 253, 251, 0.95), rgba(197, 231, 229, 0.35));
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.98), rgba(245, 247, 250, 0.96));
 }
 
 .story-mascot.analysis {
-  background: radial-gradient(circle at top, rgba(251, 253, 251, 0.95), rgba(220, 236, 231, 0.5));
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.98), rgba(245, 247, 250, 0.96));
 }
 
 .story-mascot.comparison {
-  background: radial-gradient(circle at top, rgba(251, 253, 251, 0.95), rgba(197, 231, 229, 0.28));
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.98), rgba(245, 247, 250, 0.96));
 }
 
 .story-card,
@@ -663,8 +670,8 @@ body.story-busy #clear-corrections-button {
 .correction-status-shell,
 .analysis-editor-card,
 .analysis-editor-empty {
-  background: rgba(251, 253, 251, 0.96);
-  border: 1px solid rgba(185, 208, 202, 0.95);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 22px;
   padding: 24px;
 }
@@ -687,8 +694,8 @@ body.story-busy #clear-corrections-button {
 
 .run-summary-shell,
 .run-detail-shell {
-  background: rgba(220, 236, 231, 0.5);
-  border: 1px solid rgba(185, 208, 202, 0.9);
+  background: rgba(245, 247, 250, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 18px;
   margin-bottom: 18px;
   padding: 16px;
@@ -731,7 +738,7 @@ body.story-busy #clear-corrections-button {
 }
 
 .run-highlight {
-  background: rgba(251, 253, 251, 0.92);
+  background: rgba(255, 255, 255, 0.98);
   border-radius: 14px;
   padding: 10px 12px;
 }
@@ -771,7 +778,7 @@ body.story-busy #clear-corrections-button {
 
 .run-table-head,
 .run-table-cell {
-  background: rgba(251, 253, 251, 0.92);
+  background: rgba(255, 255, 255, 0.98);
   padding: 10px 12px;
 }
 
@@ -901,8 +908,8 @@ body.story-busy #clear-corrections-button {
 }
 
 .analysis-card {
-  background: rgba(31, 111, 120, 0.05);
-  border: 1px solid rgba(31, 111, 120, 0.18);
+  background: rgba(245, 247, 250, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 18px;
   display: grid;
   gap: 18px;
@@ -932,7 +939,7 @@ body.story-busy #clear-corrections-button {
 }
 
 .detail-item {
-  background: rgba(251, 253, 251, 0.78);
+  background: rgba(255, 255, 255, 0.98);
   border-radius: 14px;
   padding: 12px;
 }
@@ -958,16 +965,16 @@ body.story-busy #clear-corrections-button {
 }
 
 .saved-override-note {
-  background: rgba(31, 111, 120, 0.08);
-  border: 1px solid rgba(31, 111, 120, 0.14);
+  background: rgba(245, 247, 250, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 14px;
   margin-top: 14px;
   padding: 12px;
 }
 
 .saved-override-note.muted {
-  background: rgba(220, 236, 231, 0.55);
-  border-color: rgba(185, 208, 202, 0.9);
+  background: rgba(245, 247, 250, 0.96);
+  border-color: rgba(217, 222, 229, 0.95);
 }
 
 .comparison-summary-shell {
@@ -975,8 +982,8 @@ body.story-busy #clear-corrections-button {
 }
 
 .comparison-shell {
-  background: rgba(220, 236, 231, 0.5);
-  border: 1px solid rgba(185, 208, 202, 0.9);
+  background: rgba(245, 247, 250, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.95);
   border-radius: 18px;
   margin-top: 16px;
   padding: 16px;
@@ -1009,7 +1016,7 @@ body.story-busy #clear-corrections-button {
 
 .comparison-table-head,
 .comparison-cell {
-  background: rgba(251, 253, 251, 0.92);
+  background: rgba(255, 255, 255, 0.98);
   padding: 10px 12px;
 }
 
@@ -1059,7 +1066,7 @@ body.story-busy #clear-corrections-button {
 }
 
 .summary-card {
-  background: rgba(220, 236, 231, 0.72);
+  background: rgba(245, 247, 250, 0.96);
   border: 1px solid var(--story-border);
   border-radius: 16px;
   padding: 14px;
@@ -1138,7 +1145,7 @@ body.story-busy #clear-corrections-button {
 }
 
 .chip.neutral {
-  background: rgba(31, 111, 120, 0.12);
+  background: rgba(245, 247, 250, 0.96);
   color: var(--story-support);
 }
 
@@ -1162,7 +1169,7 @@ body.story-busy #clear-corrections-button {
 }
 
 .score-bar {
-  background: rgba(185, 208, 202, 0.7);
+  background: rgba(217, 222, 229, 0.9);
   border-radius: 999px;
   height: 10px;
   overflow: hidden;
