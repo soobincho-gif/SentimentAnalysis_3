@@ -1,0 +1,22 @@
+# Change Log
+
+- Failure type: `EVALUATION_LOGIC_ERROR`
+- Verification scope:
+  - provider-evaluation flag normalization
+  - deterministic sentiment-fit reconciliation when the provider under-scores a strongly evidenced tone
+  - provider-backed reruns across multiple sentiments on the same 3-image park storyboard
+- Findings:
+  - the evaluator now strips inconsistent metric score flags such as bare `sentiment_fit_score` or `grounding_score` when the actual numeric scores are above threshold
+  - the evaluator now applies a limited reconciliation step when the provider gives a sub-threshold `sentiment_fit_score` but the deterministic sentiment audit is strong and grounding remains acceptable
+  - after the change, `happy`, `sad`, `playful`, and one verified `mysterious` run completed without forced revision loops on the park storyboard
+  - `suspenseful` remains the main weak sentiment because both the provider score and the deterministic audit still stay below threshold on gentle scenes
+- Evidence snippets:
+  - focused regression: `pytest -q tests/services/test_generation_modes.py tests/contracts/test_sentiment_audit.py tests/submission/test_presentation.py` -> `33 passed`
+  - full regression: `pytest -q` -> `83 passed`
+  - `2026-04-09T06:59:10Z happy`: `revision_attempts=0`, `sentiment_fit=0.75`, `flags=[]`
+  - `2026-04-09T06:59:24Z sad`: `revision_attempts=0`, `sentiment_fit=0.70`, `flags=[]`
+  - `2026-04-09T07:00:04Z playful`: `revision_attempts=0`, `sentiment_fit=0.75`, `flags=[]`
+  - `2026-04-09T07:01:20Z mysterious`: `revision_attempts=0`, `sentiment_fit=0.85`, `flags=[]`
+  - `2026-04-09T07:00:32Z suspenseful`: `revision_attempts=2`, `sentiment_fit=0.60`, `flags=['sentiment_fit_score below threshold', 'sentiment_audit indicates weak tone cues']`
+- Remaining risk:
+  - `suspenseful` still does not hold up on low-conflict park scenes, so the system is much more stable overall but not yet sentiment-complete
