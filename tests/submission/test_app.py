@@ -64,6 +64,19 @@ def test_sentiment_options_keep_expected_order_for_icon_styling() -> None:
 def test_app_css_includes_sentiment_icon_rules() -> None:
     assert '#sentiment-choices label:nth-of-type(1)::before' in APP_CSS
     assert '#sentiment-choices label:nth-of-type(6)::before' in APP_CSS
+    assert '#sentiment-choices input[type="radio"]' in APP_CSS
+    assert "accent-color: var(--sentiment-accent);" in APP_CSS
+    assert "--sentiment-playful-soft" in APP_CSS
+    assert "--checkbox-label-border-color: var(--story-border);" in APP_CSS
+    assert "--checkbox-label-background-fill-selected: var(--sentiment-soft);" in APP_CSS
+    assert "#sentiment-choices label.selected" in APP_CSS
+    assert "background: var(--sentiment-soft) !important;" in APP_CSS
+    assert "background-color: var(--sentiment-soft) !important;" in APP_CSS
+    assert "box-shadow: inset 0 0 0 999px var(--sentiment-soft)" in APP_CSS
+    assert "outline: 1px solid var(--sentiment-accent) !important;" in APP_CSS
+    assert "#sentiment-choices label.selected:nth-of-type(2)" in APP_CSS
+    assert "background: #dbeafe !important;" in APP_CSS
+    assert "box-shadow: inset 0 0 0 999px #dbeafe" in APP_CSS
 
 
 def test_app_css_includes_fullscreen_layout_guards() -> None:

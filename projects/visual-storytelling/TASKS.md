@@ -21,6 +21,13 @@
 ## Change Log
 ### 2026-04-10
 - changed files: `submission/styles.py`, `tests/submission/test_app.py`, `projects/visual-storytelling/TASKS.md`
+- what improved: Added controlled decorative color back into the sentiment selector without reintroducing dark component surfaces. Each sentiment pill now has its own soft color and selected border accent, and the native radio circle uses `accent-color` so the selected dot visibly fills with the matching sentiment color while text remains black.
+- evidence: Added a CSS regression for the sentiment radio accent and selected-pill soft background rules. Ran `python -m compileall submission tests/submission && python -m pytest -q tests/submission/test_app.py tests/submission/test_presentation.py` with 28 passing tests. Browser-checked `http://127.0.0.1:7895` after clicking Sad: the radio is selected, `accent-color` is `rgb(59, 130, 246)`, the selected pill fill is `rgb(219, 234, 254)`, the selected outline is `rgb(59, 130, 246)`, and the upload surface remains light with black text.
+- remaining issue: This is a visual-only enhancement; no generation logic, state handling, or layout behavior changed.
+- next best step: Check the real browser selector once after refresh to confirm the selected pill color feels strong enough without hurting readability.
+
+### 2026-04-10
+- changed files: `submission/styles.py`, `tests/submission/test_app.py`, `projects/visual-storytelling/TASKS.md`
 - what improved: Fixed the remaining dark Gradio component surfaces. Browser dark mode could still leave Gradio-owned wrappers such as file upload drop zones, tabs, forms, blocks, and disabled buttons with dark backgrounds even though the custom story cards were light. The CSS now overrides those Gradio surface variables and component selectors directly so upload/drop areas, tab panels, button rows, and form controls stay white or very light gray with black text.
 - evidence: Added a submission CSS regression that checks the explicit Gradio dark-surface overrides for file upload, block backgrounds, and disabled buttons. Verification will re-run the focused submission app/presentation tests before pushing.
 - remaining issue: This is still a color-only fix; no generation logic, layout sizing, or event binding changed.

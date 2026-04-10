@@ -15,6 +15,18 @@ APP_CSS = """
   --story-success: #2f7d4f;
   --story-warning: #b46a21;
   --story-danger: #b84747;
+  --sentiment-happy: #f59e0b;
+  --sentiment-happy-soft: #fff4cc;
+  --sentiment-sad: #3b82f6;
+  --sentiment-sad-soft: #dbeafe;
+  --sentiment-suspenseful: #7c3aed;
+  --sentiment-suspenseful-soft: #ede9fe;
+  --sentiment-mysterious: #0f766e;
+  --sentiment-mysterious-soft: #ccfbf1;
+  --sentiment-heartwarming: #e11d48;
+  --sentiment-heartwarming-soft: #ffe4e6;
+  --sentiment-playful: #16a34a;
+  --sentiment-playful-soft: #dcfce7;
 }
 
 html,
@@ -376,9 +388,14 @@ body.story-busy #clear-corrections-button {
 }
 
 #sentiment-choices label {
+  --sentiment-accent: var(--story-accent);
+  --sentiment-soft: var(--story-accent-soft);
+  --checkbox-label-background-fill: var(--story-surface);
+  --checkbox-label-background-fill-hover: var(--sentiment-soft);
+  --checkbox-label-background-fill-selected: var(--sentiment-soft);
+  --checkbox-label-border-color: var(--story-border);
+  --checkbox-label-border-color-selected: var(--sentiment-accent);
   align-items: center;
-  background: var(--story-surface) !important;
-  border: 1px solid var(--story-border);
   border-radius: 999px;
   color: var(--story-ink) !important;
   display: inline-flex;
@@ -387,14 +404,20 @@ body.story-busy #clear-corrections-button {
   padding: 7px 12px;
   position: relative;
   text-transform: capitalize;
-  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+#sentiment-choices input[type="radio"] {
+  accent-color: var(--sentiment-accent);
+  height: 14px;
+  width: 14px;
 }
 
 #sentiment-choices label::before {
   align-items: center;
-  background: rgba(245, 247, 250, 0.98);
+  background: var(--sentiment-soft);
   border-radius: 999px;
-  color: var(--story-support);
+  color: var(--sentiment-accent);
   display: inline-flex;
   flex: 0 0 auto;
   font-size: 0.88rem;
@@ -405,38 +428,137 @@ body.story-busy #clear-corrections-button {
 }
 
 #sentiment-choices label:has(input:checked) {
-  background: var(--story-accent-soft);
-  border-color: var(--story-accent);
+  background: var(--sentiment-soft) !important;
+  background-color: var(--sentiment-soft) !important;
+  background-image: none !important;
+  border-color: var(--sentiment-accent);
+  box-shadow: inset 0 0 0 999px var(--sentiment-soft), 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--sentiment-accent);
+  outline: 1px solid var(--sentiment-accent);
+  outline-offset: 0;
   transform: translateY(-1px);
+}
+
+#sentiment-choices label.selected {
+  background: var(--sentiment-soft) !important;
+  background-color: var(--sentiment-soft) !important;
+  background-image: none !important;
+  border-color: var(--sentiment-accent) !important;
+  box-shadow: inset 0 0 0 999px var(--sentiment-soft), 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--sentiment-accent) !important;
+  outline: 1px solid var(--sentiment-accent) !important;
+  outline-offset: 0;
 }
 
 #sentiment-choices label:has(input:checked)::before {
   background: rgba(255, 255, 255, 0.98);
-  color: var(--story-accent);
+  color: var(--sentiment-accent);
 }
 
 #sentiment-choices label:nth-of-type(1)::before {
   content: "\\2600";
 }
 
+#sentiment-choices label:nth-of-type(1) {
+  --sentiment-accent: var(--sentiment-happy);
+  --sentiment-soft: var(--sentiment-happy-soft);
+}
+
 #sentiment-choices label:nth-of-type(2)::before {
   content: "\\263E";
+}
+
+#sentiment-choices label:nth-of-type(2) {
+  --sentiment-accent: var(--sentiment-sad);
+  --sentiment-soft: var(--sentiment-sad-soft);
 }
 
 #sentiment-choices label:nth-of-type(3)::before {
   content: "\\25B3";
 }
 
+#sentiment-choices label:nth-of-type(3) {
+  --sentiment-accent: var(--sentiment-suspenseful);
+  --sentiment-soft: var(--sentiment-suspenseful-soft);
+}
+
 #sentiment-choices label:nth-of-type(4)::before {
   content: "\\25CC";
+}
+
+#sentiment-choices label:nth-of-type(4) {
+  --sentiment-accent: var(--sentiment-mysterious);
+  --sentiment-soft: var(--sentiment-mysterious-soft);
 }
 
 #sentiment-choices label:nth-of-type(5)::before {
   content: "\\2665";
 }
 
+#sentiment-choices label:nth-of-type(5) {
+  --sentiment-accent: var(--sentiment-heartwarming);
+  --sentiment-soft: var(--sentiment-heartwarming-soft);
+}
+
 #sentiment-choices label:nth-of-type(6)::before {
   content: "\\2726";
+}
+
+#sentiment-choices label:nth-of-type(6) {
+  --sentiment-accent: var(--sentiment-playful);
+  --sentiment-soft: var(--sentiment-playful-soft);
+}
+
+#sentiment-choices label.selected:nth-of-type(1),
+#sentiment-choices label:nth-of-type(1):has(input:checked) {
+  background: #fff4cc !important;
+  background-color: #fff4cc !important;
+  border-color: #f59e0b !important;
+  box-shadow: inset 0 0 0 999px #fff4cc, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #f59e0b !important;
+  outline: 1px solid #f59e0b !important;
+}
+
+#sentiment-choices label.selected:nth-of-type(2),
+#sentiment-choices label:nth-of-type(2):has(input:checked) {
+  background: #dbeafe !important;
+  background-color: #dbeafe !important;
+  border-color: #3b82f6 !important;
+  box-shadow: inset 0 0 0 999px #dbeafe, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #3b82f6 !important;
+  outline: 1px solid #3b82f6 !important;
+}
+
+#sentiment-choices label.selected:nth-of-type(3),
+#sentiment-choices label:nth-of-type(3):has(input:checked) {
+  background: #ede9fe !important;
+  background-color: #ede9fe !important;
+  border-color: #7c3aed !important;
+  box-shadow: inset 0 0 0 999px #ede9fe, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #7c3aed !important;
+  outline: 1px solid #7c3aed !important;
+}
+
+#sentiment-choices label.selected:nth-of-type(4),
+#sentiment-choices label:nth-of-type(4):has(input:checked) {
+  background: #ccfbf1 !important;
+  background-color: #ccfbf1 !important;
+  border-color: #0f766e !important;
+  box-shadow: inset 0 0 0 999px #ccfbf1, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #0f766e !important;
+  outline: 1px solid #0f766e !important;
+}
+
+#sentiment-choices label.selected:nth-of-type(5),
+#sentiment-choices label:nth-of-type(5):has(input:checked) {
+  background: #ffe4e6 !important;
+  background-color: #ffe4e6 !important;
+  border-color: #e11d48 !important;
+  box-shadow: inset 0 0 0 999px #ffe4e6, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #e11d48 !important;
+  outline: 1px solid #e11d48 !important;
+}
+
+#sentiment-choices label.selected:nth-of-type(6),
+#sentiment-choices label:nth-of-type(6):has(input:checked) {
+  background: #dcfce7 !important;
+  background-color: #dcfce7 !important;
+  border-color: #16a34a !important;
+  box-shadow: inset 0 0 0 999px #dcfce7, 0 8px 18px rgba(15, 23, 42, 0.08), 0 0 0 1px #16a34a !important;
+  outline: 1px solid #16a34a !important;
 }
 
 .thumb-grid {
