@@ -20,6 +20,13 @@
 
 ## Change Log
 ### 2026-04-10
+- changed files: `submission/styles.py`, `tests/submission/test_app.py`, `projects/visual-storytelling/TASKS.md`
+- what improved: Fixed the remaining dark Gradio component surfaces. Browser dark mode could still leave Gradio-owned wrappers such as file upload drop zones, tabs, forms, blocks, and disabled buttons with dark backgrounds even though the custom story cards were light. The CSS now overrides those Gradio surface variables and component selectors directly so upload/drop areas, tab panels, button rows, and form controls stay white or very light gray with black text.
+- evidence: Added a submission CSS regression that checks the explicit Gradio dark-surface overrides for file upload, block backgrounds, and disabled buttons. Verification will re-run the focused submission app/presentation tests before pushing.
+- remaining issue: This is still a color-only fix; no generation logic, layout sizing, or event binding changed.
+- next best step: Refresh the currently open browser tab or use the newly launched local URL after this patch, because older already-running Gradio servers can keep the previous CSS in memory.
+
+### 2026-04-10
 - changed files: `submission/styles.py`, `submission/presentation.py`, `projects/visual-storytelling/TASKS.md`
 - what improved: Refined the color-only UI pass for stronger readability. Inner cards, panels, guidance boxes, analysis cards, comparison blocks, table cells, and empty-state surfaces now use white or very light gray fills, while primary body and helper copy use near-black text. Accent colors remain only for action emphasis and status/category cues.
 - evidence: Ran a color scan to confirm the previous sage-tinted surface literals were removed from the main UI color surfaces. Verification will re-run the submission presentation/app tests before pushing.

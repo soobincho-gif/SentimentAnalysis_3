@@ -86,5 +86,13 @@ def test_app_shell_forces_light_mode_even_when_browser_prefers_dark() -> None:
     assert "body.story-busy::after" in APP_CSS
 
 
+def test_app_css_overrides_gradio_dark_component_surfaces() -> None:
+    assert "--block-background-fill: #ffffff !important;" in APP_CSS
+    assert 'body.dark .gradio-container [data-testid="file-upload"]' in APP_CSS
+    assert '.gradio-container [data-testid="file-upload"]' in APP_CSS
+    assert ".gradio-container button:disabled" in APP_CSS
+    assert "background: var(--story-surface-strong) !important;" in APP_CSS
+
+
 def test_app_avoids_custom_head_runtime_that_can_block_gradio_hydration() -> None:
     assert APP_HEAD == ""

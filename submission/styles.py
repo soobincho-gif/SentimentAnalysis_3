@@ -33,6 +33,15 @@ body {
 
 body,
 .gradio-container {
+  --background-fill-primary: #f3f5f7 !important;
+  --background-fill-secondary: #ffffff !important;
+  --block-background-fill: #ffffff !important;
+  --block-border-color: #d9dee5 !important;
+  --body-text-color: #050505 !important;
+  --body-text-color-subdued: #222222 !important;
+  --input-background-fill: #ffffff !important;
+  --button-secondary-background-fill: #ffffff !important;
+  --button-secondary-text-color: #050505 !important;
   color: var(--story-ink);
   font-family: "IBM Plex Sans", Arial, sans-serif;
 }
@@ -56,6 +65,8 @@ body.dark .gradio-container [data-testid="block-label"],
 body.dark .gradio-container [role="tablist"],
 body.dark .gradio-container [role="tab"],
 body.dark .gradio-container [role="tabpanel"] {
+  background: var(--story-surface) !important;
+  border-color: var(--story-border) !important;
   color: var(--story-ink) !important;
 }
 
@@ -70,7 +81,58 @@ body.dark .gradio-container button {
 .gradio-container textarea,
 .gradio-container select {
   background: var(--story-surface) !important;
+  border-color: var(--story-border) !important;
   color: var(--story-ink) !important;
+}
+
+.gradio-container .main,
+.gradio-container .main.fillable.app,
+.gradio-container .wrap,
+.gradio-container .contain {
+  background: transparent !important;
+  color: var(--story-ink) !important;
+}
+
+.gradio-container .form,
+.gradio-container .block,
+.gradio-container .gr-box,
+.gradio-container .gr-group,
+.gradio-container .gr-panel,
+.gradio-container [data-testid="block-label"],
+.gradio-container [role="tablist"],
+.gradio-container [role="tab"],
+.gradio-container [role="tabpanel"] {
+  background: var(--story-surface) !important;
+  border-color: var(--story-border) !important;
+  color: var(--story-ink) !important;
+}
+
+.gradio-container [data-testid="file-upload"] {
+  background: var(--story-surface-strong) !important;
+  border-color: var(--story-border) !important;
+  color: var(--story-ink) !important;
+}
+
+.gradio-container [data-testid="file-upload"] *,
+.gradio-container [role="tab"] *,
+.gradio-container [role="tabpanel"] *,
+.gradio-container label,
+.gradio-container .form *,
+.gradio-container .block * {
+  color: var(--story-ink) !important;
+}
+
+.gradio-container button {
+  background: var(--story-surface) !important;
+  border-color: var(--story-border) !important;
+  color: var(--story-ink) !important;
+}
+
+.gradio-container button:disabled,
+.gradio-container button[disabled] {
+  background: var(--story-surface-strong) !important;
+  color: var(--story-ink-muted) !important;
+  opacity: 1 !important;
 }
 
 .gradio-container {
@@ -296,11 +358,11 @@ body.story-busy #clear-corrections-button {
 }
 
 #generate-button {
-  background: linear-gradient(135deg, #ef8a5f, var(--story-accent));
-  border: none;
+  background: linear-gradient(135deg, #ffe8df, #ffd0bd) !important;
+  border: 1px solid #e16f46 !important;
   border-radius: 14px;
   box-shadow: 0 14px 24px rgba(225, 111, 70, 0.24);
-  color: #fffaf7;
+  color: var(--story-ink) !important;
   font-weight: 700;
 }
 
@@ -315,8 +377,10 @@ body.story-busy #clear-corrections-button {
 
 #sentiment-choices label {
   align-items: center;
+  background: var(--story-surface) !important;
   border: 1px solid var(--story-border);
   border-radius: 999px;
+  color: var(--story-ink) !important;
   display: inline-flex;
   gap: 8px;
   margin: 4px 8px 4px 0;
