@@ -98,12 +98,6 @@ def build_ui() -> gr.Blocks:
                         info="Tone shapes style, not facts.",
                         elem_id="sentiment-choices",
                     )
-                    generate_button = gr.Button(
-                        "Generate Story",
-                        variant="primary",
-                        elem_id="generate-button",
-                        interactive=False,
-                    )
                     max_sentences_input = gr.Number(
                         value=5,
                         minimum=1,
@@ -112,35 +106,54 @@ def build_ui() -> gr.Blocks:
                         label="Max sentences",
                         info="Use any positive number. The model may still stop earlier if the image evidence runs out.",
                     )
+                    gr.HTML('<p class="primary-action-label">Main action</p>')
+                    generate_button = gr.Button(
+                        "Generate Story",
+                        variant="primary",
+                        elem_id="generate-button",
+                        elem_classes=["primary-cta-button"],
+                        interactive=False,
+                    )
                     gr.HTML('<div id="sequence-helper">Story follows image order</div>')
                     sequence_preview_output = gr.HTML(value=present_sequence_preview([]))
 
             with gr.Column(scale=7, elem_classes=["workspace-column", "workspace-result-column"]):
                 with gr.Group(elem_classes=["panel-card", "result-panel"]):
                     status_output = gr.HTML(value=initial_outputs.status_html)
-                    with gr.Row(elem_classes=["action-row"]):
+                    gr.HTML('<p class="action-group-label">Optional follow-up</p>')
+                    with gr.Row(elem_classes=["action-row", "followup-row"]):
                         regenerate_button = gr.Button(
                             "Regenerate",
                             variant="secondary",
                             elem_id="regenerate-button",
+                            elem_classes=["followup-button"],
                             interactive=False,
                         )
                         strict_regenerate_button = gr.Button(
                             "Regenerate with stricter grounding",
                             variant="secondary",
                             elem_id="strict-regenerate-button",
+                            elem_classes=["followup-button"],
                             interactive=False,
                         )
+                    gr.HTML(
+                        '<p class="action-group-label action-group-label-muted">'
+                        "Advanced: uses saved Analysis corrections"
+                        "</p>"
+                    )
+                    with gr.Row(elem_classes=["action-row", "advanced-row"]):
                         corrected_generate_button = gr.Button(
                             "Generate from corrected analysis",
                             variant="secondary",
                             elem_id="corrected-generate-button",
+                            elem_classes=["advanced-button"],
                             interactive=False,
                         )
                         corrected_strict_generate_button = gr.Button(
                             "Corrected analysis + stricter grounding",
                             variant="secondary",
                             elem_id="corrected-strict-generate-button",
+                            elem_classes=["advanced-button"],
                             interactive=False,
                         )
                     action_guidance_output = gr.HTML(value=initial_action_guidance)
@@ -154,6 +167,7 @@ def build_ui() -> gr.Blocks:
                                 "Clear all saved corrections",
                                 variant="secondary",
                                 elem_id="clear-corrections-button",
+                                elem_classes=["quiet-button"],
                             )
 
                             @gr.render(

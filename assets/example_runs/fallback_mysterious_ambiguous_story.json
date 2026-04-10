@@ -1,0 +1,262 @@
+{
+  "title": "Main Subject in Unresolved Setting",
+  "story_text": "A small question hangs over the scene as image 1 shows main subject remaining visible in unresolved setting, leaving the frame curious, quiet, and slightly uncertain. The same subject appears to continue into the next moment, and the next visible moment keeps part of its meaning just out of reach. Soon after, image 2 shows main subject remaining visible in unresolved setting, leaving the frame curious, quiet, and slightly uncertain. The same subject appears to continue into the next moment, and the next visible moment keeps part of its meaning just out of reach. Soon after, image 3 shows main subject remaining visible in unresolved setting, leaving the frame curious, quiet, and slightly uncertain.",
+  "original_scene_observations": [
+    {
+      "image_id": 1,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": null
+    },
+    {
+      "image_id": 2,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": true
+    },
+    {
+      "image_id": 3,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": true
+    }
+  ],
+  "scene_observations": [
+    {
+      "image_id": 1,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": null
+    },
+    {
+      "image_id": 2,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": true
+    },
+    {
+      "image_id": 3,
+      "entities": [
+        "main subject"
+      ],
+      "setting": "unresolved setting",
+      "objects": [],
+      "actions": [
+        "remaining visible"
+      ],
+      "visible_mood": "bright",
+      "text_in_image": [],
+      "uncertainty_notes": [
+        "Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+        "Local visual fallback was used because no multimodal provider is configured."
+      ],
+      "same_subject_as_previous": true
+    }
+  ],
+  "sequence_memory": {
+    "recurring_entities": [
+      "main subject"
+    ],
+    "setting_progression": [
+      "unresolved setting",
+      "unresolved setting",
+      "unresolved setting"
+    ],
+    "event_candidates": [
+      "Image 1: main subject remaining visible",
+      "Image 2: main subject remaining visible",
+      "Image 3: main subject remaining visible"
+    ],
+    "unresolved_ambiguities": [
+      "Image 1 has limited cues: Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+      "Image 2 has limited cues: Local fallback was used for scene analysis because OPENAI_API_KEY is not configured.",
+      "Image 3 has limited cues: Local fallback was used for scene analysis because OPENAI_API_KEY is not configured."
+    ]
+  },
+  "narrative_plan": {
+    "arc_type": "grounded chronological sequence",
+    "beat_list": [
+      "Image 1: keep main subject grounded while it is remaining visible in unresolved setting.",
+      "Image 2: keep main subject grounded while it is remaining visible in unresolved setting.",
+      "Image 3: keep main subject grounded while it is remaining visible in unresolved setting.",
+      "Link image 1 to image 2 conservatively.",
+      "Link image 2 to image 3 conservatively."
+    ],
+    "sentence_image_map": [
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "allowed_inferences": [
+      "time passes between adjacent images",
+      "the sequence can be described in chronological order"
+    ],
+    "forbidden_claims": [
+      "Do not introduce unseen characters or events.",
+      "Do not claim emotions or causes that are not visually supported.",
+      "Do not claim a stable identity when continuity remains uncertain."
+    ],
+    "title_candidates": [
+      "Main Subject in Unresolved Setting",
+      "A Grounded View of Unresolved Setting"
+    ]
+  },
+  "evaluation_report": {
+    "grounding_score": 0.74,
+    "coherence_score": 0.76,
+    "redundancy_score": 0.9,
+    "sentiment_fit_score": 0.89,
+    "readability_score": 0.86,
+    "flags": [],
+    "summary": "Local deterministic evaluation was used. Local fallback was used for evaluation because OPENAI_API_KEY is not configured. The draft was scored conservatively against the available observations. Sentiment audit: The draft expresses mysterious clearly through quiet, curious, curious wording.",
+    "sentiment_audit": {
+      "target_sentiment": "mysterious",
+      "matched_keywords": [
+        "quiet",
+        "curious",
+        "uncertain"
+      ],
+      "missing_keywords": [
+        "shadowed"
+      ],
+      "matched_style_cues": [
+        "curious wording",
+        "open close",
+        "controlled ambiguity"
+      ],
+      "missing_style_cues": [],
+      "score": 0.89,
+      "summary": "The draft expresses mysterious clearly through quiet, curious, curious wording."
+    }
+  },
+  "sentence_alignment": [
+    [
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3
+    ]
+  ],
+  "grounding_notes": [
+    "Local fallback was used for story generation because OPENAI_API_KEY is not configured.",
+    "Image 1 supported the story through setting=unresolved setting, actions=remaining visible.",
+    "Image 2 supported the story through setting=unresolved setting, actions=remaining visible.",
+    "Image 3 supported the story through setting=unresolved setting, actions=remaining visible.",
+    "Image 1 has limited cues: Local fallback was used for scene analysis because OPENAI_API_KEY is not configured."
+  ],
+  "provider_status": [
+    {
+      "stage": "scene_analysis",
+      "execution_mode": "local_fallback",
+      "reason": "Local fallback was used for scene_analysis because OPENAI_API_KEY is not configured.",
+      "recovery_hint": "Set OPENAI_API_KEY in the environment or .env file."
+    },
+    {
+      "stage": "narrative_planning",
+      "execution_mode": "local_fallback",
+      "reason": "Local fallback was used for narrative_planning because OPENAI_API_KEY is not configured.",
+      "recovery_hint": "Set OPENAI_API_KEY in the environment or .env file."
+    },
+    {
+      "stage": "story_generation",
+      "execution_mode": "local_fallback",
+      "reason": "Local fallback was used for story_generation because OPENAI_API_KEY is not configured.",
+      "recovery_hint": "Set OPENAI_API_KEY in the environment or .env file."
+    },
+    {
+      "stage": "evaluation",
+      "execution_mode": "local_fallback",
+      "reason": "Local fallback was used for evaluation because OPENAI_API_KEY is not configured.",
+      "recovery_hint": "Set OPENAI_API_KEY in the environment or .env file."
+    }
+  ],
+  "applied_overrides": [],
+  "generation_mode": "default",
+  "revision_attempts": 0,
+  "is_fallback": false
+}

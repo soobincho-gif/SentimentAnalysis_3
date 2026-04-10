@@ -1,0 +1,288 @@
+{
+  "title": "A Day in the Park",
+  "story_text": "On a sunny afternoon, a person and their dog strolled through the park, surrounded by trees and a winding path. After their walk, the dog joyfully chased a ball, basking in the warmth of the sun and the thrill of play. With each leap and bound, laughter filled the air, creating memories that would linger long after the day was done. As the sun began to set, they returned home, the dog curling up peacefully by the door, content and tired. In that quiet moment, the bond between them felt stronger than ever, a testament to the joy of simple days spent together.",
+  "original_scene_observations": [
+    {
+      "image_id": 1,
+      "entities": [
+        "dog",
+        "person",
+        "tree"
+      ],
+      "setting": "park",
+      "objects": [
+        "path",
+        "sun"
+      ],
+      "actions": [
+        "walking"
+      ],
+      "visible_mood": "neutral",
+      "text_in_image": [
+        "Frame 1  Dog walking through the park"
+      ],
+      "uncertainty_notes": [
+        "The exact breed of the dog is not identifiable.",
+        "The person's expression is not visible."
+      ],
+      "same_subject_as_previous": null
+    },
+    {
+      "image_id": 2,
+      "entities": [
+        "dog",
+        "ball",
+        "sun"
+      ],
+      "setting": "park",
+      "objects": [
+        "dog",
+        "ball",
+        "ground",
+        "sun"
+      ],
+      "actions": [
+        "playing"
+      ],
+      "visible_mood": "playful",
+      "text_in_image": [
+        "Frame 2  Dog playing in the park"
+      ],
+      "uncertainty_notes": [
+        "The exact breed of the dog is not identifiable.",
+        "The specific type of ball is not specified."
+      ],
+      "same_subject_as_previous": true
+    },
+    {
+      "image_id": 3,
+      "entities": [
+        "dog"
+      ],
+      "setting": "home",
+      "objects": [
+        "door",
+        "frame",
+        "box"
+      ],
+      "actions": [
+        "resting"
+      ],
+      "visible_mood": "calm",
+      "text_in_image": [
+        "Frame 3 🐶 Dog resting at home"
+      ],
+      "uncertainty_notes": [
+        "The exact breed or type of dog is not identifiable. The mood of the dog is inferred from its resting position."
+      ],
+      "same_subject_as_previous": true
+    }
+  ],
+  "scene_observations": [
+    {
+      "image_id": 1,
+      "entities": [
+        "dog",
+        "person",
+        "tree"
+      ],
+      "setting": "park",
+      "objects": [
+        "path",
+        "sun"
+      ],
+      "actions": [
+        "walking"
+      ],
+      "visible_mood": "neutral",
+      "text_in_image": [
+        "Frame 1  Dog walking through the park"
+      ],
+      "uncertainty_notes": [
+        "The exact breed of the dog is not identifiable.",
+        "The person's expression is not visible."
+      ],
+      "same_subject_as_previous": null
+    },
+    {
+      "image_id": 2,
+      "entities": [
+        "dog",
+        "ball",
+        "sun"
+      ],
+      "setting": "park",
+      "objects": [
+        "dog",
+        "ball",
+        "ground",
+        "sun"
+      ],
+      "actions": [
+        "playing"
+      ],
+      "visible_mood": "playful",
+      "text_in_image": [
+        "Frame 2  Dog playing in the park"
+      ],
+      "uncertainty_notes": [
+        "The exact breed of the dog is not identifiable.",
+        "The specific type of ball is not specified."
+      ],
+      "same_subject_as_previous": true
+    },
+    {
+      "image_id": 3,
+      "entities": [
+        "dog"
+      ],
+      "setting": "home",
+      "objects": [
+        "door",
+        "frame",
+        "box"
+      ],
+      "actions": [
+        "resting"
+      ],
+      "visible_mood": "calm",
+      "text_in_image": [
+        "Frame 3 🐶 Dog resting at home"
+      ],
+      "uncertainty_notes": [
+        "The exact breed or type of dog is not identifiable. The mood of the dog is inferred from its resting position."
+      ],
+      "same_subject_as_previous": true
+    }
+  ],
+  "sequence_memory": {
+    "recurring_entities": [
+      "dog"
+    ],
+    "setting_progression": [
+      "park",
+      "park",
+      "home"
+    ],
+    "event_candidates": [
+      "Image 1: dog, person, tree walking with path, sun",
+      "Image 2: dog, ball, sun playing with dog, ball, ground, sun",
+      "Image 3: dog resting with door, frame, box"
+    ],
+    "unresolved_ambiguities": [
+      "Image 1 has limited cues: The exact breed of the dog is not identifiable.",
+      "Image 2 has limited cues: The exact breed of the dog is not identifiable.",
+      "Image 3 has limited cues: The exact breed or type of dog is not identifiable. The mood of the dog is inferred from its resting position."
+    ]
+  },
+  "narrative_plan": {
+    "arc_type": "slice of life",
+    "beat_list": [
+      "Image 1: dog, person, tree walking with path, sun",
+      "Image 2: dog, ball, sun playing with dog, ball, ground, sun",
+      "Image 3: dog resting with door, frame, box"
+    ],
+    "sentence_image_map": [
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ]
+    ],
+    "allowed_inferences": [
+      "The dog enjoys its time in the park, transitioning from a walk to play.",
+      "After a fun day at the park, the dog returns home to rest."
+    ],
+    "forbidden_claims": [
+      "The dog is a specific breed.",
+      "The person has a visible expression or identity.",
+      "The ball is of a specific type or color."
+    ],
+    "title_candidates": [
+      "A Day in the Park",
+      "Playtime Adventures",
+      "Home Sweet Home"
+    ]
+  },
+  "evaluation_report": {
+    "grounding_score": 0.8,
+    "coherence_score": 0.9,
+    "redundancy_score": 0.85,
+    "sentiment_fit_score": 0.75,
+    "readability_score": 0.9,
+    "flags": [],
+    "summary": "The story effectively captures a heartwarming day in the park with a dog, showcasing a strong bond between the characters. The grounding is solid, with clear connections to the images, though some ambiguity regarding the dog's breed affects the overall sentiment fit. Sentiment audit: The draft expresses heartwarming clearly through tender, comforting, tender wording.",
+    "sentiment_audit": {
+      "target_sentiment": "heartwarming",
+      "matched_keywords": [
+        "tender",
+        "comforting",
+        "sincere"
+      ],
+      "missing_keywords": [
+        "gentle"
+      ],
+      "matched_style_cues": [
+        "tender wording",
+        "comforting close",
+        "connected framing"
+      ],
+      "missing_style_cues": [],
+      "score": 0.89,
+      "summary": "The draft expresses heartwarming clearly through tender, comforting, tender wording."
+    }
+  },
+  "sentence_alignment": [
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "grounding_notes": [
+    "The dog enjoys its time in the park, transitioning from a walk to play.",
+    "After a fun day at the park, the dog returns home to rest.",
+    "Image 1 supported the story through setting=park, actions=walking, objects=path and sun.",
+    "Image 2 supported the story through setting=park, actions=playing, objects=dog, ball, ground, and sun.",
+    "Image 3 supported the story through setting=home, actions=resting, objects=door, frame, and box.",
+    "Image 1 has limited cues: The exact breed of the dog is not identifiable."
+  ],
+  "provider_status": [
+    {
+      "stage": "scene_analysis",
+      "execution_mode": "provider",
+      "reason": null,
+      "recovery_hint": null
+    },
+    {
+      "stage": "narrative_planning",
+      "execution_mode": "provider",
+      "reason": null,
+      "recovery_hint": null
+    },
+    {
+      "stage": "story_generation",
+      "execution_mode": "provider",
+      "reason": null,
+      "recovery_hint": null
+    },
+    {
+      "stage": "evaluation",
+      "execution_mode": "provider",
+      "reason": null,
+      "recovery_hint": null
+    }
+  ],
+  "applied_overrides": [],
+  "generation_mode": "default",
+  "revision_attempts": 0,
+  "is_fallback": false
+}

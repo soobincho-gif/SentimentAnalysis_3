@@ -184,27 +184,59 @@ def present_action_guidance(
     has_corrections: bool,
     sentence_error: str | None,
 ) -> str:
-    messages: list[str] = []
-    if not has_images:
-        messages.append("Upload at least one image to enable Generate Story.")
-    if sentence_error is not None:
-        messages.append(sentence_error)
-    if not has_previous_run:
-        messages.append("Generate a story first to unlock Regenerate and stricter grounding.")
-    if not has_corrections:
-        messages.append("Save at least one correction in Analysis first to unlock corrected-analysis actions.")
+    primary_ready = has_images and sentence_error is None
+    followup_ready = has_previous_run and sentence_error is None
+    advanced_ready = has_corrections and sentence_error is None
 
-    if not messages:
-        messages.append("Generate Story is the main action. Regenerate and corrected-analysis actions are ready.")
+    primary_reason = (
+        sentence_error
+        or (
+            "Upload at least one image to enable Generate Story."
+            if not has_images
+            else "Ready to generate with the current image order and selected sentiment."
+        )
+    )
+    followup_reason = (
+        sentence_error
+        or (
+            "Generate a story first to unlock Regenerate and stricter grounding."
+            if not has_previous_run
+            else "Optional after the first draft when you want another pass from the latest run."
+        )
+    )
+    advanced_reason = (
+        sentence_error
+        or (
+            "Save at least one correction in Analysis first to unlock corrected-analysis actions."
+            if not has_corrections
+            else "Ready to generate from the saved Analysis corrections."
+        )
+    )
 
-    items = "".join(f"<li>{html.escape(message)}</li>" for message in messages)
+    input_issue_markup = (
+        f"""
+        <div class="action-guidance-alert">
+          <span class="action-guidance-pill blocked">Input issue</span>
+          <p class="action-guidance-note">{html.escape(sentence_error)}</p>
+        </div>
+        """
+        if sentence_error is not None
+        else ""
+    )
     return f"""
     <section class="action-guidance-shell">
-      <p class="action-guidance-title">Action availability</p>
-      <p class="action-guidance-copy">
-        Generate Story is the main next step. Regenerate uses the latest run, and corrected-analysis actions depend on saved Analysis corrections.
-      </p>
-      <ul class="action-guidance-list">{items}</ul>
+      <div class="action-guidance-head">
+        <p class="action-guidance-title">Action hierarchy</p>
+        <p class="action-guidance-copy">
+          Generate Story is the main next step. Follow-up and advanced actions stay visually quieter until their prerequisites are available.
+        </p>
+      </div>
+      {input_issue_markup}
+      <div class="action-guidance-grid">
+        {_render_action_guidance_item("Main step", "Generate Story", primary_reason, primary_ready)}
+        {_render_action_guidance_item("Optional", "Regenerate or stricter grounding", followup_reason, followup_ready)}
+        {_render_action_guidance_item("Advanced", "Corrected-analysis actions", advanced_reason, advanced_ready)}
+      </div>
     </section>
     """
 
@@ -212,10 +244,15 @@ def present_action_guidance(
 def present_running_action_guidance() -> str:
     return """
     <section class="action-guidance-shell running">
-      <p class="action-guidance-title">Generation in progress</p>
-      <p class="action-guidance-copy">
-        The current run is still processing. Buttons will unlock automatically when it finishes.
-      </p>
+      <div class="action-guidance-head">
+        <p class="action-guidance-title">Generation in progress</p>
+        <div class="action-guidance-alert">
+          <span class="action-guidance-pill processing">In progress</span>
+          <p class="action-guidance-note">
+            The current run is still processing. Buttons will unlock automatically when it finishes.
+          </p>
+        </div>
+      </div>
     </section>
     """
 
@@ -230,7 +267,7 @@ def present_error(exc: Exception) -> SubmissionOutputs:
             raw_error_text,
         ),
         story_html=f"""
-        <section class="story-card low-confidence">
+        <section class="story-card error-state">
           <div class="story-meta">Generation blocked</div>
           <div class="story-preview-label">Error details</div>
           <h2 class="story-title">No story yet</h2>
@@ -366,6 +403,26 @@ def present_empty_analysis_editor() -> str:
           compact=True,
       )}
     </section>
+    """
+
+
+def _render_action_guidance_item(
+    label: str,
+    action_name: str,
+    reason: str,
+    is_ready: bool,
+) -> str:
+    state_class = "ready" if is_ready else "blocked"
+    state_label = "Ready" if is_ready else "Blocked"
+    return f"""
+    <article class="action-guidance-item {state_class}">
+      <div class="action-guidance-item-head">
+        <span class="action-guidance-label">{html.escape(label)}</span>
+        <span class="action-guidance-pill {state_class}">{state_label}</span>
+      </div>
+      <p class="action-guidance-action">{html.escape(action_name)}</p>
+      <p class="action-guidance-note">{html.escape(reason)}</p>
+    </article>
     """
 
 

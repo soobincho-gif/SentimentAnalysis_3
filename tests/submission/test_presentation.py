@@ -156,6 +156,8 @@ def test_present_action_guidance_lists_disabled_reasons() -> None:
     assert "Upload at least one image to enable Generate Story." in guidance_html
     assert "Generate a story first to unlock Regenerate and stricter grounding." in guidance_html
     assert "Save at least one correction in Analysis first" in guidance_html
+    assert "Action hierarchy" in guidance_html
+    assert "Blocked" in guidance_html
 
 
 def test_present_error_banner_does_not_double_escape_quotes() -> None:
@@ -163,6 +165,7 @@ def test_present_error_banner_does_not_double_escape_quotes() -> None:
 
     assert "&amp;#x27;" not in outputs.status_html
     assert "Couldn&#x27;t generate a story yet." in outputs.status_html
+    assert "error-state" in outputs.story_html
 
 
 def test_present_story_result_marks_provider_fallback_as_caution(tmp_path: Path) -> None:

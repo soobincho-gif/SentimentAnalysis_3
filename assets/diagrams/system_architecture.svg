@@ -1,0 +1,65 @@
+<svg width="1280" height="520" viewBox="0 0 1280 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="520" rx="32" fill="#F6F1E8"/>
+  <rect x="34" y="34" width="1212" height="452" rx="28" fill="#FFFDF9" stroke="#D8CCBC" stroke-width="2"/>
+  <text x="78" y="96" fill="#635851" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1.8">VISUAL STORYTELLING PIPELINE</text>
+  <text x="78" y="138" fill="#201A17" font-family="Georgia, serif" font-size="34" font-weight="700">From ordered frames to grounded story output</text>
+  <g font-family="IBM Plex Sans, Arial, sans-serif">
+    <rect x="78" y="200" width="170" height="116" rx="22" fill="#F7D8C8" stroke="#C55C38" stroke-width="2"/>
+    <text x="106" y="240" fill="#201A17" font-size="18" font-weight="700">UI / Input</text>
+    <text x="106" y="270" fill="#635851" font-size="15">Uploads or built-in</text>
+    <text x="106" y="292" fill="#635851" font-size="15">sample sequences</text>
+
+    <rect x="292" y="200" width="170" height="116" rx="22" fill="#FFF6EB" stroke="#D8CCBC" stroke-width="2"/>
+    <text x="315" y="240" fill="#201A17" font-size="18" font-weight="700">Preprocess</text>
+    <text x="315" y="270" fill="#635851" font-size="15">Preserve order</text>
+    <text x="315" y="292" fill="#635851" font-size="15">normalize inputs</text>
+
+    <rect x="506" y="200" width="170" height="116" rx="22" fill="#DCEAE6" stroke="#3F6F6A" stroke-width="2"/>
+    <text x="532" y="240" fill="#201A17" font-size="18" font-weight="700">Observation Layer</text>
+    <text x="532" y="270" fill="#635851" font-size="15">Scene facts first</text>
+    <text x="532" y="292" fill="#635851" font-size="15">visible entities and actions</text>
+
+    <rect x="720" y="200" width="170" height="116" rx="22" fill="#FFF6EB" stroke="#D8CCBC" stroke-width="2"/>
+    <text x="748" y="240" fill="#201A17" font-size="18" font-weight="700">Sequence Memory</text>
+    <text x="748" y="270" fill="#635851" font-size="15">Recurring entities</text>
+    <text x="748" y="292" fill="#635851" font-size="15">continuity and ambiguity</text>
+
+    <rect x="934" y="200" width="170" height="116" rx="22" fill="#FFF6EB" stroke="#D8CCBC" stroke-width="2"/>
+    <text x="964" y="240" fill="#201A17" font-size="18" font-weight="700">Plan + Tone</text>
+    <text x="964" y="270" fill="#635851" font-size="15">Narrative plan</text>
+    <text x="964" y="292" fill="#635851" font-size="15">sentiment profile</text>
+
+    <rect x="506" y="352" width="170" height="96" rx="22" fill="#F3E6D7" stroke="#D8CCBC" stroke-width="2"/>
+    <text x="542" y="390" fill="#201A17" font-size="18" font-weight="700">Story Draft</text>
+    <text x="542" y="418" fill="#635851" font-size="15">Short prose aligned</text>
+    <text x="542" y="438" fill="#635851" font-size="15">to the image sequence</text>
+
+    <rect x="720" y="352" width="170" height="96" rx="22" fill="#F4E2D2" stroke="#A45A2A" stroke-width="2"/>
+    <text x="750" y="390" fill="#201A17" font-size="18" font-weight="700">Evaluation</text>
+    <text x="750" y="418" fill="#635851" font-size="15">Grounding, coherence,</text>
+    <text x="750" y="438" fill="#635851" font-size="15">redundancy, sentiment fit</text>
+
+    <rect x="934" y="352" width="248" height="96" rx="22" fill="#E6F0EA" stroke="#4F7A56" stroke-width="2"/>
+    <text x="966" y="390" fill="#201A17" font-size="18" font-weight="700">Final Rendering</text>
+    <text x="966" y="418" fill="#635851" font-size="15">Story card, sentence map,</text>
+    <text x="966" y="438" fill="#635851" font-size="15">analysis trace, diagnostics, warnings</text>
+  </g>
+  <g stroke="#A78E7A" stroke-width="3" stroke-linecap="round">
+    <path d="M248 258H282"/>
+    <path d="M462 258H496"/>
+    <path d="M676 258H710"/>
+    <path d="M890 258H924"/>
+    <path d="M1019 316V338H591V346"/>
+    <path d="M676 400H710"/>
+    <path d="M890 400H924"/>
+  </g>
+  <g fill="#A78E7A">
+    <path d="M282 250L292 258L282 266V250Z"/>
+    <path d="M496 250L506 258L496 266V250Z"/>
+    <path d="M710 250L720 258L710 266V250Z"/>
+    <path d="M924 250L934 258L924 266V250Z"/>
+    <path d="M583 346L591 356L599 346H583Z"/>
+    <path d="M710 392L720 400L710 408V392Z"/>
+    <path d="M924 392L934 400L924 408V392Z"/>
+  </g>
+</svg>

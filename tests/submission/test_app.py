@@ -99,12 +99,25 @@ def test_app_shell_forces_light_mode_even_when_browser_prefers_dark() -> None:
     assert "body.story-busy::after" in APP_CSS
 
 
-def test_app_css_overrides_gradio_dark_component_surfaces() -> None:
-    assert "--block-background-fill: #ffffff !important;" in APP_CSS
-    assert 'body.dark .gradio-container [data-testid="file-upload"]' in APP_CSS
-    assert '.gradio-container [data-testid="file-upload"]' in APP_CSS
-    assert ".gradio-container button:disabled" in APP_CSS
-    assert "background: var(--story-surface-strong) !important;" in APP_CSS
+def test_app_css_keeps_native_upload_rows_readable_without_global_overrides() -> None:
+    assert "--block-background-fill: #fffaf2 !important;" in APP_CSS
+    assert '.gradio-container .file-preview tr.file:nth-child(odd)' in APP_CSS
+    assert '.gradio-container .file-preview .label-clear-button' in APP_CSS
+    assert '.panel-card .styler' in APP_CSS
+    assert '.gradio-container [data-testid="file-upload"]' not in APP_CSS
+    assert '.gradio-container button {' not in APP_CSS
+    assert '.gradio-container [data-testid="file-upload"] *' not in APP_CSS
+
+
+def test_app_css_strengthens_tab_active_state_and_action_hierarchy() -> None:
+    assert '#results-tabs [role="tab"][aria-selected="true"]' in APP_CSS
+    assert "box-shadow: 0 12px 20px rgba(77, 60, 43, 0.1), inset 0 -2px 0 var(--story-accent) !important;" in APP_CSS
+    assert ".primary-action-label" in APP_CSS
+    assert ".action-group-label" in APP_CSS
+    assert ".primary-cta-button" in APP_CSS
+    assert ".followup-button" in APP_CSS
+    assert ".advanced-button" in APP_CSS
+    assert "#generate-button:hover:not(:disabled)" in APP_CSS
 
 
 def test_app_avoids_custom_head_runtime_that_can_block_gradio_hydration() -> None:
